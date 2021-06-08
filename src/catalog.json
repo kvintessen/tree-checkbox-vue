@@ -1,0 +1,32 @@
+{
+  "products": [
+    {
+      "name": "Каталог",
+      "checked": false,
+      "children": [
+        {
+          "name": "Ноутбуки",
+          "checked": false,
+          "children": [
+            {
+              "name": "MSI",
+              "checked": false,
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Смартфоны",
+          "checked": false,
+          "children": [
+            {
+              "name": "Samsung",
+              "checked": false,
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
