@@ -22,7 +22,7 @@ export default {
   name: "my-component",
   data(){
     return {
-      open: true,
+      open: true
 
     }
   },
@@ -47,10 +47,13 @@ export default {
   },
   watch: {
     isChecked(newValue){
-      console.log(newValue)
-      this.item.checked = newValue
-      if(this.item.checked){
-        this.item.children.checked = this.item.checked
+      for(let i = 0; i <= this.$children.length; i++){
+        if(this.isFolder){
+          this.$children[i].isChecked = newValue
+          this.item.checked = newValue
+        } else {
+          this.item.checked = newValue
+        }
       }
     }
   },
