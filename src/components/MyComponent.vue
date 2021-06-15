@@ -1,6 +1,6 @@
 <template>
   <li :class="[isFolder ? 'folder' : 'file']">
-    <input type="checkbox" id="checkbox"  v-model="isChecked">
+    <input type="checkbox" id="checkbox" v-model="isCheckedInternal" >
     <label
       :class="{'open': open}"
       @click="toggle"
@@ -9,9 +9,11 @@
     </label>
     <ul v-show="open" v-if="isFolder" :class="{'open': open}">
       <my-component
+      @changeChecked="newChecked"
       v-for="(product, idx) in item.children"
       :key="idx"
       :item="product"
+      :isChecked="isCheckedInternal"
       />
     </ul>
   </li>
@@ -22,7 +24,8 @@ export default {
   name: "my-component",
   data(){
     return {
-      open: true
+      open: true,
+      isCheckedInternal: this.isChecked
 
     }
   },
@@ -36,29 +39,25 @@ export default {
         if(this.isFolder){
           this.open = !this.open
         }
-      }
+      },
+    newChecked(){
+       if(this.$children.filter(el => el.isCheckedInternal).length === this.$children.length){
+         this.isCheckedInternal = true
+       }
+    }
   },
   props: {
-    isChecked:{
-      type: Boolean,
-      default: false
-    },
+    isChecked: Boolean,
     item: Object
   },
   watch: {
-    isChecked(newValue){
-      for(let i = 0; i <= this.$children.length; i++){
-        if(this.isFolder){
-          this.$children[i].isChecked = newValue
-          this.item.checked = newValue
-        } else {
-          this.item.checked = newValue
-        }
+      isCheckedInternal(newValue){
+        this.item.checked = newValue
+        this.$emit('changeChecked', newValue,  this.item.children)
+      },
+      isChecked(newValue){
+        this.isCheckedInternal = newValue
       }
-    }
-  },
-  mounted() {
-
   }
 }
 </script>

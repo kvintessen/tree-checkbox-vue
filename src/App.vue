@@ -4,6 +4,7 @@
         v-for="(product, idx) in products.products"
         :key="idx"
         :item="product"
+        :is-checked="product.checked"
 
     />
 

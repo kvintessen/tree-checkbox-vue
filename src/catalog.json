@@ -12,6 +12,11 @@
               "name": "MSI",
               "checked": false,
               "children": []
+            },
+            {
+              "name": "HP",
+              "checked": false,
+              "children": []
             }
           ]
         },
@@ -21,6 +26,11 @@
           "children": [
             {
               "name": "Samsung",
+              "checked": false,
+              "children": []
+            },
+            {
+              "name": "Xiaomi",
               "checked": false,
               "children": []
             }
