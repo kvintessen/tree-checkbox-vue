@@ -43,7 +43,9 @@ export default {
     newChecked(){
        if(this.$children.filter(el => el.isCheckedInternal).length === this.$children.length){
          this.isCheckedInternal = true
+
        }
+
     }
   },
   props: {
@@ -53,7 +55,7 @@ export default {
   watch: {
       isCheckedInternal(newValue){
         this.item.checked = newValue
-        this.$emit('changeChecked', newValue,  this.item.children)
+        this.$emit('changeChecked', newValue)
       },
       isChecked(newValue){
         this.isCheckedInternal = newValue
