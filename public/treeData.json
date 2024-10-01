@@ -1,0 +1,18 @@
+{
+  "label": "Root",
+  "checked": false,
+  "children": [
+    {
+      "label": "Child 1",
+      "checked": false,
+      "children": [
+        { "label": "Subchild 1-1", "checked": false },
+        { "label": "Subchild 1-2", "checked": false }
+      ]
+    },
+    {
+      "label": "Child 2",
+      "checked": false
+    }
+  ]
+}
