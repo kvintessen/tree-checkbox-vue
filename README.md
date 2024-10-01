@@ -1,24 +1,19 @@
-# vuemenu
+### **Запуск Приложения**:
 
-## Project setup
-```
-npm install
+1. **Запустить команду для сборки и запуска контейнеров из корня приложения**:
+
+```bash
+docker compose up -d --build
 ```
 
-### Compiles and hot-reloads for development
+2. **Зайти в контейнер приложения:**
+
+```BASH
+docker exec -ti tree-checkbox-node-1 bash
 ```
+
+3. Внутри контейнера выполнить команду запуска webpack в режиме разработки:
+
+```Bash
 npm run serve
 ```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
